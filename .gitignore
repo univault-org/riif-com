@@ -15,3 +15,10 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# Next.js
+site/.next/
+site/out/
+site/node_modules/
+site/.env*.local
+

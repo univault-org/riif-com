@@ -374,7 +374,7 @@
         return (
           <div className="min-h-screen bg-neutral-50 dark:bg-neutral-900 transition-colors duration-200">
             <nav className="bg-white dark:bg-neutral-800 shadow-sm sticky top-0 z-10 backdrop-blur-sm bg-opacity-80 dark:bg-opacity-80">
-              <div className="max-w-4xl mx-auto px-4 py-4">
+              <div className="max-w-6xl mx-auto px-4 py-4">
                 <div className="flex justify-between items-center">
                   <Navigation />
                   <button
@@ -391,9 +391,9 @@
                 </div>
               </div>
             </nav>
-            <main className="max-w-4xl mx-auto px-4 py-8">{children}</main>
+            <main className="max-w-6xl mx-auto px-4 py-8">{children}</main>
             <footer className="border-t border-neutral-200 dark:border-neutral-800 mt-16">
-              <div className="max-w-4xl mx-auto px-4 py-8 text-center text-neutral-500 dark:text-neutral-400">
+              <div className="max-w-6xl mx-auto px-4 py-8 text-center text-neutral-500 dark:text-neutral-400">
                 Built with MarkVault - Preserving digital content for
                 generations
               </div>
@@ -623,7 +623,7 @@
                 {/* Decorative grid pattern */}
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
               </div>
-              <div className="relative h-full max-w-4xl mx-auto px-4">
+              <div className="relative h-full max-w-6xl mx-auto px-4">
                 <div className="h-full flex flex-col justify-center items-center text-center">
                   <div className="space-y-6 max-w-3xl">
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-neutral-800 to-neutral-600 dark:from-neutral-100 dark:to-neutral-300">
@@ -660,7 +660,7 @@
             </section>
 
             {/* Features Section */}
-            <section className="max-w-4xl mx-auto px-4">
+            <section className="max-w-6xl mx-auto px-4">
               <h2 className="text-3xl font-bold text-center mb-12 text-neutral-800 dark:text-neutral-100">
                 Why Choose MarkVault?
               </h2>
@@ -685,7 +685,7 @@
             </section>
 
             {/* Latest Posts Section */}
-            <section className="max-w-4xl mx-auto px-4">
+            <section className="max-w-6xl mx-auto px-4">
               <h2 className="text-3xl font-bold mb-8 text-neutral-800 dark:text-neutral-100">
                 Latest Posts
               </h2>
@@ -803,7 +803,7 @@
               <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
               </div>
-              <div className="relative max-w-4xl mx-auto px-4 text-center">
+              <div className="relative max-w-6xl mx-auto px-4 text-center">
                 <h1 className="text-4xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-100 mb-4">
                   {pageData.title}
                 </h1>
@@ -816,7 +816,7 @@
             </section>
 
             {/* Features Grid */}
-            <section className="max-w-4xl mx-auto px-4">
+            <section className="max-w-6xl mx-auto px-4">
               <div className="grid md:grid-cols-2 gap-6">
                 {[
                   {
@@ -863,7 +863,7 @@
             </section>
 
             {/* Main Content Section */}
-            <section className="max-w-4xl mx-auto px-4">
+            <section className="max-w-6xl mx-auto px-4">
               <div className="bg-white dark:bg-neutral-800 p-8 rounded-xl shadow-sm">
                 {pageData &&
                   pageData.content &&
@@ -872,7 +872,7 @@
             </section>
 
             {/* Call to Action */}
-            <section className="max-w-4xl mx-auto px-4 text-center py-16">
+            <section className="max-w-6xl mx-auto px-4 text-center py-16">
               <h2 className="text-3xl font-bold text-neutral-800 dark:text-neutral-100 mb-4">
                 Ready to Get Started?
               </h2>
@@ -942,7 +942,7 @@
               <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
               </div>
-              <div className="relative max-w-4xl mx-auto px-4 text-center">
+              <div className="relative max-w-6xl mx-auto px-4 text-center">
                 <h1 className="text-4xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-100 mb-4">
                   Latest Posts
                 </h1>
@@ -953,7 +953,7 @@
             </section>
 
             {/* Posts Grid */}
-            <section className="max-w-4xl mx-auto px-4">
+            <section className="max-w-6xl mx-auto px-4">
               <div className="space-y-12">
                 {/* Featured Post (First Post) */}
                 {postData.length > 0 && (
@@ -1188,7 +1188,7 @@
         if (!post) return <ErrorMessage message="Post not found" />;
 
         return (
-          <div className="max-w-4xl mx-auto animate-fadeIn">
+          <div className="max-w-6xl mx-auto animate-fadeIn">
             {/* Article Header */}
             <header className="relative py-16 -mt-8 mb-12 bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-800 dark:to-neutral-900">
               <div className="absolute inset-0 overflow-hidden">
