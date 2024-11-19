@@ -1,30 +1,37 @@
-import { getPostBySlug, getAllPosts } from '@/lib/markdown'
-import { MDXRemote } from 'next-mdx-remote/rsc'
-import Image from 'next/image'
-import Link from 'next/link'
-import { notFound } from 'next/navigation'
-import BackToTopButton from '@/components/posts/BackToTopButton'
+import { getPostBySlug, getAllPosts } from "@/lib/markdown";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import BackToTopButton from "@/components/posts/BackToTopButton";
 
 export async function generateStaticParams() {
-  const posts = await getAllPosts()
-  return posts.map((post) => ({
-    slug: post.slug,
-  }))
+  const posts = await getAllPosts();
+
+  // Debug what paths we're generating
+  console.log(
+    "Generating paths for:",
+    posts.map((post) => post.slug)
+  );
+
+  // Generate both versions of the path - with and without .md
+  return posts.flatMap((post) => [
+    { slug: post.slug },
+    { slug: `${post.slug}.md` },
+  ]);
 }
 
 function calculateReadingTime(content) {
-  const wordsPerMinute = 200
-  const words = content.trim().split(/\s+/).length
-  return Math.ceil(words / wordsPerMinute)
+  const wordsPerMinute = 200;
+  const words = content.trim().split(/\s+/).length;
+  return Math.ceil(words / wordsPerMinute);
 }
 
-
-export default async function PostPage(props)  {
+export default async function PostPage(props) {
   try {
-   // Wait for params to be available
-   const params = await Promise.resolve(props.params)
-   const { content, metadata } = await getPostBySlug(params.slug)
-   const readingTime = calculateReadingTime(content)
+    // Wait for params to be available
+    const params = await Promise.resolve(props.params);
+    const { content, metadata } = await getPostBySlug(params.slug);
+    const readingTime = calculateReadingTime(content);
 
     return (
       <div className="max-w-6xl mx-auto animate-fadeIn">
@@ -45,7 +52,7 @@ export default async function PostPage(props)  {
             <div className="flex items-center justify-center space-x-4 text-sm text-neutral-500 dark:text-neutral-400">
               <div className="flex items-center">
                 <i className="bi bi-person mr-2"></i>
-                <span>{metadata.author || 'Anonymous'}</span>
+                <span>{metadata.author || "Anonymous"}</span>
               </div>
               <div className="flex items-center">
                 <i className="bi bi-calendar3 mr-2"></i>
@@ -75,9 +82,9 @@ export default async function PostPage(props)  {
                 />
               </div>
             )}
-            
+
             <div className="bg-white dark:bg-neutral-800 p-8 md:p-12 rounded-xl shadow-sm">
-              <div 
+              <div
                 dangerouslySetInnerHTML={{ __html: content }}
                 className="markdown-content"
               />
@@ -97,8 +104,8 @@ export default async function PostPage(props)  {
           </div>
         </article>
       </div>
-    )
+    );
   } catch (error) {
-    notFound()
+    notFound();
   }
 }

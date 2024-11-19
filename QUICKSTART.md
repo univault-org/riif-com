@@ -1,6 +1,6 @@
 # MarkVault Quick Start Guide
 
-This guide will help you get your MarkVault site up and running in minutes.
+This guide will help you get your MarkVault site up and running in minutes using the simple setup.
 
 ## Prerequisites
 
@@ -9,17 +9,47 @@ This guide will help you get your MarkVault site up and running in minutes.
 - A web browser
 - Basic command line familiarity
 
-## Step 1: Get the Template
+## Step 1: Get Started
 
+### Next.js Setup
 ```bash
-# Clone the repository
+# Clone the main branch
 git clone https://github.com/univault-org/MarkVault.git my-site
-
-# Navigate to your new site directory
 cd my-site
+
+# Install dependencies
+pnpm install
+
+# Start development
+pnpm dev
 ```
 
-## Step 2: Site Configuration
+### React Setup
+```bash
+# Clone the React branch
+git clone -b markvault-react https://github.com/univault-org/MarkVault.git my-site
+cd my-site
+
+# No installation needed!
+cd site
+npx serve
+```
+
+## Step 2: Project Structure
+```
+my-site/
+├── content/           # Content lives here (preserved across contributors)
+│   ├── posts/        # Blog posts
+│   │   └── my-first-post.md
+│   └── pages/        # Static pages
+│       ├── about.md
+│       └── contact.md
+│
+└── site/             # React site (single HTML file)
+    └── index.html    # All React components and configuration
+```
+
+## Step 3: Site Configuration
 
 1. Open `site/index.html` in your text editor
 2. Modify the basic settings:
@@ -28,18 +58,6 @@ cd my-site
   <title>Your Site Name</title>
   <!-- Other meta tags you might want to change -->
 </head>
-```
-
-## Step 3: Content Structure
-
-Your content lives in `site/content/`:
-```
-site/content/
-├── posts/     # Blog posts go here
-│   └── my-first-post.md
-└── pages/     # Static pages go here
-    ├── about.md
-    └── contact.md
 ```
 
 ## Step 4: Writing Content
@@ -134,16 +152,19 @@ function Navigation() {
 ## Deployment
 
 1. Push your site to GitHub
-2. Deploy using:
-   - GitHub Pages
-   - Netlify
-   - Vercel
-   - Any static hosting service
+2. Deploy using GitHub Pages:
+   - Go to repository settings
+   - Navigate to Pages
+   - Select main branch
+   - Set directory to /site
+   
+Your site will be available at: `https://YOUR_USERNAME.github.io/YOUR_REPO/`
 
 ## Need Help?
 
 - Check the [README.md](README.md) for detailed documentation
 - Visit our [GitHub repository](https://github.com/univault-org/MarkVault)
+- Switch to the `main` branch for Next.js setup
 - Open an issue for support
 
 ---

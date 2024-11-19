@@ -8,12 +8,42 @@ A lightweight starter template for building knowledge bases, websites, and blogs
 - 🛠 **Developer-Friendly**: Uses familiar tools - React, Markdown, and simple HTML/JS
 - 🔒 **Future-Proof**: Simple tech stack ensures long-term maintainability
 
+## Key Features
+
+### 📝 Decentralized Content Preservation
+- Content lives in contributors' local machines
+- Each contributor maintains their own copy
+- Site content survives even if the main site goes down
+- True to the original vision of distributed web
+
+### 🤝 Community-Driven Content
+- Contributors write content locally
+- Submit via Pull Requests
+- Site owners review and approve
+- Content is preserved across multiple locations
+
 ## Quick Start
 
 1. Use this template:
 ```bash
-git clone https://github.com/univault-org/MarkVault.git
-cd MarkVault
+git clone https://github.com/univault-org/MarkVault.git my-site
+cd my-site
+# Install dependencies
+pnpm install
+
+# Start development
+pnpm dev
+```
+
+### React Setup (Simple Development)
+
+```bash
+# Clone the react branch
+git clone -b markvault-react https://github.com/univault-org/MarkVault.git my-site
+cd my-site
+
+# No installation needed!
+npx serve site
 ```
 
 2. Create a new repository on GitHub

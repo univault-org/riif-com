@@ -42,8 +42,8 @@ export async function getAllPosts() {
           : "Unknown date";
 
         return {
-          slug: filename.replace(".md", ""),
-          title: data.title || filename.replace(".md", ""),
+          slug: filename.replace(/\.md$/, ""),
+          title: data.title || filename.replace(/\.md$/, ""),
           date: date,
           excerpt: data.excerpt || "",
           image:
@@ -66,7 +66,9 @@ export async function getAllPosts() {
 
 export async function getPostBySlug(slug) {
   try {
-    const filePath = path.join(contentDirectory, "posts", `${slug}.md`);
+    const cleanSlug = slug.replace(/\.md$/, '')
+    
+    const filePath = path.join(contentDirectory, "posts", `${cleanSlug}.md`);
     const fileContents = fs.readFileSync(filePath, "utf8");
     const { data, content } = matter(fileContents);
 
