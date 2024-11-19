@@ -1,10 +1,24 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import BookmarkMetadataDisplay from '@/components/bookmark/BookmarkMetadataDisplay';
 
-export default function BookmarkAssistant() {
+// Loading component
+function LoadingState() {
+  return (
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
+      <div className="max-w-3xl mx-auto px-4">
+        <div className="flex items-center justify-center p-8">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-500"></div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Main content component
+function BookmarkAssistantContent() {
     const searchParams = useSearchParams();
     const url = searchParams.get('url');
     const [metadata, setMetadata] = useState(null);
@@ -82,5 +96,14 @@ export default function BookmarkAssistant() {
                 {metadata && !isLoading && <BookmarkMetadataDisplay metadata={metadata} />}
             </div>
         </div>
+    );
+}
+
+// Wrapper component with Suspense
+export default function BookmarkAssistant() {
+    return (
+        <Suspense fallback={<LoadingState />}>
+            <BookmarkAssistantContent />
+        </Suspense>
     );
 }
