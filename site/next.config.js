@@ -3,7 +3,7 @@ const nextConfig = {
     output: 'export', // Enables static HTML export
     
     // Configure base path for GitHub Pages
-    basePath: process.env.NODE_ENV === 'production' ? '/MarkVault' : '',
+    basePath: process.env.NODE_ENV === 'production' ? '/JoySpace-Site' : '',
     
     // Required for static export
     images: {
@@ -12,6 +12,21 @@ const nextConfig = {
   
     // Enable React strict mode for better development
     reactStrictMode: true,
+  
+    // Disable API routes in static export
+    rewrites: () => [],
+    
+    // Add trailing slash for static export
+    trailingSlash: true,
+
+    // Specify which paths to generate statically
+    exportPathMap: async function () {
+      return {
+        '/': { page: '/' },
+        '/bookmark-assistant': { page: '/bookmark-assistant' },
+        // Add other static pages here as needed
+      }
+    },
   
     // Customize webpack config if needed
     webpack: (config) => {
@@ -23,6 +38,6 @@ const nextConfig = {
   
       return config
     }
-  }
+}
   
-  module.exports = nextConfig
+module.exports = nextConfig
