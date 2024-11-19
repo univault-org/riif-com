@@ -1,34 +1,28 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    output: 'export', // Enables static HTML export
-    
-    // Configure base path for GitHub Pages
-    basePath: process.env.NODE_ENV === 'production' ? '/JoySpace-Site' : '',
-    
-    // Required for static export
-    images: {
-      unoptimized: true,
-    },
+  output: 'export', // Enables static HTML export
   
-    // Enable React strict mode for better development
-    reactStrictMode: true,
+  // Configure base path for GitHub Pages
+  basePath: process.env.NODE_ENV === 'production' ? '/JoySpace-Site' : '',
   
-    // Add trailing slash for static export
-    trailingSlash: true,
-  
-    // Customize webpack config if needed
-    webpack: (config) => {
-      // Add markdown file handling
-      config.module.rules.push({
-        test: /\.md$/,
-        use: 'raw-loader'
-      })
-  
-      return config
-    },
+  // Required for static export
+  images: {
+    unoptimized: true,
+  },
 
-    // Enable build cache
-    distDir: process.env.NODE_ENV === 'development' ? '.next' : 'build'
+  // Enable React strict mode for better development
+  reactStrictMode: true,
+
+  // Customize webpack config if needed
+  webpack: (config) => {
+    // Add markdown file handling
+    config.module.rules.push({
+      test: /\.md$/,
+      use: 'raw-loader'
+    })
+
+    return config
+  }
 }
-  
+
 module.exports = nextConfig
