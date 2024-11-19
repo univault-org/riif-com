@@ -13,9 +13,6 @@ const nextConfig = {
     // Enable React strict mode for better development
     reactStrictMode: true,
   
-    // Disable API routes in static export
-    rewrites: () => [],
-    
     // Add trailing slash for static export
     trailingSlash: true,
 
