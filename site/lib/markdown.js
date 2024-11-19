@@ -6,8 +6,28 @@ import { remark } from "remark";
 import html from "remark-html";
 import remarkGfm from "remark-gfm";
 
-const contentDirectory = path.join(process.cwd(), "..", "content");
+// Debug function to verify paths
+function verifyPaths() {
+  const cwd = process.cwd();
+  const contentDir = path.join(cwd, "..", "content");
+  const postsDir = path.join(contentDir, "posts");
+  
+  console.log('Path verification:', {
+    currentWorkingDir: cwd,
+    contentDirectory: contentDir,
+    postsDirectory: postsDir,
+    contentExists: fs.existsSync(contentDir),
+    postsExists: fs.existsSync(postsDir),
+    contentFiles: fs.existsSync(contentDir) ? fs.readdirSync(contentDir) : [],
+    postFiles: fs.existsSync(postsDir) ? fs.readdirSync(postsDir) : []
+  });
+}
 
+// Call verification on module load
+verifyPaths();
+
+// Update the content directory path
+const contentDirectory = path.join(process.cwd(), "..", "content");
 
 async function markdownToHtml(markdown) {
   const result = await remark()
@@ -22,13 +42,16 @@ async function markdownToHtml(markdown) {
 export async function getAllPosts() {
   try {
     const postsDirectory = path.join(contentDirectory, "posts");
+    console.log('Getting posts from:', postsDirectory);
 
     if (!fs.existsSync(postsDirectory)) {
       console.warn("Posts directory not found:", postsDirectory);
+      console.log("Available directories:", fs.readdirSync(path.dirname(postsDirectory)));
       return [];
     }
 
     const filenames = fs.readdirSync(postsDirectory);
+    console.log('Found post files:', filenames);
 
     const posts = filenames
       .filter((filename) => filename.endsWith(".md"))
