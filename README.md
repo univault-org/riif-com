@@ -1,6 +1,6 @@
 # MarkVault Starter
 
-A lightweight starter template for building knowledge bases, websites, and blogs with pure React and Markdown. See it in action: [Live Demo](https://univault-org.github.io/MarkVault/)
+A lightweight starter template for building knowledge bases, websites, and blogs with pure React and Markdown. See it in action: [Live Demo](https://github.com/univault-org/JoySpace-Site/)
 
 ## Why MarkVault?
 
