@@ -21,4 +21,5 @@ site/.next/
 site/out/
 site/node_modules/
 site/.env*.local
+NOTES.md
 
