@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server'
 
+export const dynamic = 'force-static'
+export const revalidate = false
+
 export async function GET() {
     try {
-        // In the future, implement your database fetching logic here
-        // For now, return initialBookmarks
         const initialBookmarks = [
             {
                 title: 'Next.js Documentation',
