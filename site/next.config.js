@@ -15,15 +15,6 @@ const nextConfig = {
   
     // Add trailing slash for static export
     trailingSlash: true,
-
-    // Specify which paths to generate statically
-    exportPathMap: async function () {
-      return {
-        '/': { page: '/' },
-        '/bookmark-assistant': { page: '/bookmark-assistant' },
-        // Add other static pages here as needed
-      }
-    },
   
     // Customize webpack config if needed
     webpack: (config) => {
@@ -34,7 +25,10 @@ const nextConfig = {
       })
   
       return config
-    }
+    },
+
+    // Enable build cache
+    distDir: process.env.NODE_ENV === 'development' ? '.next' : 'build'
 }
   
 module.exports = nextConfig
