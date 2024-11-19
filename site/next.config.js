@@ -3,7 +3,7 @@ const nextConfig = {
   output: 'export', // Enables static HTML export
   
   // Configure base path for GitHub Pages
-  basePath: process.env.NODE_ENV === 'production' ? '/JoySpace-Site' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '' : '',
   
   // Required for static export
   images: {
