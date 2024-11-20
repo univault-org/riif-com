@@ -156,10 +156,15 @@ git push origin post/my-awesome-post
 
 
 4. Create a Pull Request:
-   - Go to your fork on GitHub
-   - Click 'Contribute' > 'Open Pull Request'
-   - Select the branch with your changes
-   - Fill in the PR template
+    - Go to the original repository at [univault-org/JoySpace-Site](https://github.com/univault-org/JoySpace-Site)
+    - You should see a yellow banner with your recently pushed branch and a green 'Compare & pull request' button
+    - Click the green 'Compare & pull request' button
+    - Base repository: univault-org/JoySpace-Site
+    - Base: main
+    - Head repository: YOUR_USERNAME/JoySpace-Site
+    - Compare: post/my-awesome-post
+    - Fill in the PR description with details about your post
+    - Click 'Create pull request'
 
 ### 5. Review Process
 
