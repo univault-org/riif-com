@@ -176,13 +176,25 @@ git push origin post/my-awesome-post
 
 ### Q: How do I keep my fork updated?
 
+First, add the upstream repository (only need to do this once):
 ```bash
-# Fetch changes from original repository
+# Add the original repository as upstream
+git remote add upstream https://github.com/univault-org/JoySpace-Site.git
+```
+
+Then, whenever you want to update your fork:
+```bash
+# Fetch changes from upstream repository
 git fetch upstream
 
 # Update your main branch
 git checkout main
 git merge upstream/main
+```
+
+You can verify your remotes at any time using:
+```bash
+git remote -v
 ```
 
 
