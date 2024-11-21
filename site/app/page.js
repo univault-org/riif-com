@@ -2,6 +2,7 @@ import { getAllPosts } from "@/lib/markdown";
 import PostCard from "@/components/posts/PostCard";
 import Link from "next/link";
 import BookmarkAssistant from "@/components/bookmark/BookmarkAssistant";
+import PricingButton from "@/components/pricing/PricingButton";
 
 export default async function Home() {
   const posts = await getAllPosts();
@@ -42,43 +43,65 @@ export default async function Home() {
         "Unlimited bookmarks",
       ],
       icon: <i className="bi bi-heart text-3xl"></i>,
-      buttonText: "Get Started",
+      buttonText: "View on GitHub",
+      buttonUrl: "https://github.com/univault-org/JoySpace",
+      highlighted: false,
     },
     {
       name: "Sponsor",
-      price: "$5/month",
-      description: "Enhanced features for video learning and research",
+      price: "$5",
+      description: "All community features plus advanced video learning tools",
       features: [
-        "Everything in Community, plus:",
+        "Limited time: Try free for 30 days",
+        {
+          title: "Everything in Community, plus:",
+          items: [
+            "All basic bookmark features",
+            "Local-first storage",
+            "Unlimited bookmarks",
+            "Core features access",
+          ],
+        },
         {
           title: "Video Learning Suite",
           items: [
             "Timestamp bookmarking in videos",
-            "Video chapter notes",
-            "Support for local & YouTube videos",
-            "Create learning playlists",
+            "Video chapter notes & summaries",
+            "YouTube integration",
+            "Local video support",
+            "Learning playlists & collections",
           ],
         },
         {
-          title: "Advanced Organization",
+          title: "Advanced Search & Organization",
           items: [
-            "Search across video timestamps",
-            "Topic-based collections",
-            "Cross-reference notes",
-            "Export video notes",
+            "Search within video timestamps",
+            "Full-text search across notes",
+            "AI-powered topic suggestions",
+            "Cross-reference between videos",
+            "Custom tags and collections",
           ],
         },
         {
-          title: "Premium Support",
+          title: "Sponsor Benefits",
           items: [
-            "Priority email support",
-            "Early access to features",
-            "Custom integrations",
+            "Private GitHub repository access",
+            "Priority feature requests",
+            "Direct developer support",
+            "Monthly sponsor-only updates",
+            "Shape product roadmap",
           ],
         },
       ],
       icon: <i className="bi bi-play-circle-fill text-3xl"></i>,
-      buttonText: "Become a Sponsor",
+      primaryButton: {
+        text: "Become a Sponsor",
+        url: "https://github.com/sponsors/univault-org",
+      },
+      secondaryButton: {
+        text: "Request Free Trial",
+        url: "https://github.com/univault-org/JoySpace-Site/discussions/new?category=early-access",
+      },
       highlighted: true,
     },
   ];
@@ -272,15 +295,21 @@ export default async function Home() {
               </div>
 
               <div className="mt-8">
-                <button
-                  className={`w-full py-3 px-4 rounded-xl font-medium transition-all ${
-                    tier.highlighted
-                      ? "bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white shadow-md hover:shadow-lg"
-                      : "bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600 text-neutral-800 dark:text-neutral-100"
-                  }`}
-                >
-                  {tier.buttonText}
-                </button>
+                {tier.primaryButton ? (
+                  <PricingButton
+                    primaryButton={tier.primaryButton}
+                    secondaryButton={tier.secondaryButton}
+                    highlighted={tier.highlighted}
+                  />
+                ) : (
+                  <PricingButton
+                    primaryButton={{
+                      text: tier.buttonText,
+                      url: tier.buttonUrl,
+                    }}
+                    highlighted={tier.highlighted}
+                  />
+                )}
               </div>
             </div>
           ))}
