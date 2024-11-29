@@ -1,23 +1,23 @@
 {
-    "name": "JoySpace Wiki",
-    "short_name": "JoySpace",
-    "description": "Open-source tools to organize your digital space with joy",
+    "name": "RIIF - Play Joyfully",
+    "short_name": "RIIF",
+    "description": "The World's First Artificial Intelligence Operating System - AIOS for Secure AI Play",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#B45309",
+    "background_color": "#000000",
+    "theme_color": "#FF0000",
     "icons": [
       {
-        "src": "/JoyS-icon.png",
+        "src": "/R II F_logo.png",
         "sizes": "192x192",
         "type": "image/png",
         "purpose": "any"
       },
       {
-        "src": "/JoyS-icon.png",
+        "src": "/R II F_logo.png",
         "sizes": "512x512",
         "type": "image/png",
         "purpose": "maskable"
       }
     ]
-  }
+}
